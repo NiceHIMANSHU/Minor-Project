@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Gravity</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+
+<body>
+    <!--Login & Register page section -->
+    <video class="video-slide" src="image/Project.mp4" autoplay muted loop></video>
+    <div class="wrapper" id="login">
+        <div class="text">Login to Discover Gravity</div>
+        <div class="form-box-login">
+            <a href="login.html">
+                <div class="title"><img src="image/Screenshot_2023-09-30_173002-removebg-preview.png"></div>
+            </a>
+            <!--Login form start-->
+            <form action="" id="login-form">
+                <input type="text" id="email" name="User-id" placeholder="E-mail or phone number" required>
+                <input type="Password" name="Password" id="password" placeholder="Password" required>
+                <input type="text" name="Social-name" id="user" placeholder="User name" required>
+                <button type="submit" onclick="auth()"><span>login</span></button>
+                <div class="option">OR</div>
+            </form>
+            <div class="fblink">
+                <span class=""></span>
+                <a href="https://facebook.com/"><i class="fa-brands fa-facebook"></i>Log in with Facebook</a><br><br>
+                <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i>Log in with Twitter</a>
+            </div>
+            <div class="forget-id">
+                <a href="#">Forget Password?</a>
+            </div>
+            <div class="sign-up">
+                <p>Don't have an account?<a href="#" class="register-link" id="show-registration"
+                        onclick="registration()">Create account</a></p>
+            </div>
+        </div>
+    </div>
+    <!--Login form end -->
+    <!--Register page-->
+    <div class="wrapper" id="registration" style="display:none;">
+        <div class="text">Regsiter to Discover Gravity</div>
+        <div class="form-box-login">
+            <div class="title"><img src="image/Screenshot_2023-09-30_173002-removebg-preview.png"></div>
+            <form action="database.php" id="login-form">
+                <input type="text" id="name" name="User-name" placeholder="Name" required>
+                <input type="number" id="phone" name="phone" placeholder="Phone number" required>
+                <input type="text" id="email" name="email" placeholder="Email-Id" required>
+                <input type="password" name="password" id="password" placeholder="Make a strong Password" required>
+                <input type="checkbox" name="terms" id="terms" class="check-box">I agree to the terms and conditions
+                <button type="submit"><span>Register</span></button>
+                <div class="option">OR</div>
+            </form>
+            <div class="fblink">
+                <span class=""></span>
+                <a href="#"><i class="fa-brands fa-facebook"></i>Log in with Facebook</a><br><br>
+                <a href="#"><i class="fa-brands fa-twitter"></i>Log in with Twitter</a>
+            </div>
+            <div class="forget-id">
+                <a href="#">Forget Password?</a>
+            </div>
+            <div class="sign-up">
+                <p>Already have an account?<a href="#" class="register-link" id="show-registration"
+                        onclick="login()">Log in</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
