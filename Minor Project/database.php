@@ -1,22 +1,18 @@
 <?php
-//$number = $_POST['number'];
-$user= $_POST['User-name'];
-//$email = $_POST['email'];
-$phone = $_POST['phone'];
-$email= $_POST['email'];
-$password= $_POST['password'];
-// Database connection
-$conn = new mysqli('localhost', 'root', '', 'project');
-if ($conn->connect_error) {
-    die('Connection Failed : ' . $conn->connect_error);
-} else {
-    $stmt = $conn->prepare("insert into minor (Name,Number,Email,Password) values (?,?,?,?)");
-    $stmt->bind_param("siss",$user, /*$email*/$phone,$email,$password); 
+$user=$_POST['user'];
+$phone=$_POST['phone'];
+$email=$_POST['email'];
+$password=$_POST['password'];
+//database connection
+$conn=new mysqli('localhost','root','','form');
+if($conn->connect_error){
+    die('Connection failed : ' .$conn->connect_error);
+}else{
+    $stmt=$conn->prepare("insert into register (user,phone,email,password) values (?,?,?,?)");
+    $stmt->bind_param("siss",$user,$phone,$email,$password);
     $stmt->execute();
-    if ($stmt->affected_rows > 0) {
-        echo "Register Successfully...";
-    } else {
-        echo "Error: " . $stmt->error;
+    if($stmt->affected_rows > 0){
+        echo "Booked successfully, Now you can login the website as per your informations, Thank you for visiting our site.....";
     }
     $stmt->close();
     $conn->close();
