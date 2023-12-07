@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -13,18 +14,36 @@
     <nav>
         <div class="container">
             <div class="logo">
-                <img src="image/Screenshot_2023-09-30_173002-removebg-preview.png" alt="">
+                <img src="image/Gravity.png" alt="">
             </div>
             <div class="search-bar">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="search" name="" id="" placeholder="Search for creators....">
             </div>
             <div class="create">
-                <label class="btn btn-primary" for="create-post">hello</label>
+                <label class="btn btn-primary" for="create-post">Create</label>
                 <div class="profile-picture">
-                    <img src="image/profilephoto.jpeg" alt="">
+                    <label for="fileInput">
+                        <img src="image/profilephoto.jpeg" alt="" id="dpImage" alt="Profile Picture"
+                            style="cursor: pointer;">
+                    </label>
+                    <!-- File input for uploading a new profile picture -->
+                    <input type="file" id="fileInput" style="display: none" accept="image/*"
+                        onchange="handleFileUpload(this)">
+
+                    <!--Pop up Images start-->
+                    <div class="popup-container" id="popupContainer">
+                        <div class="popup-content">
+                            <span class="close-button" id="closeButton">&times;</span>
+                            <img src="image/profilephoto.jpeg" class="enlarged-image" alt="Enlarged Image">
+                        </div>
+                    </div>
+                    <!--Pop up Images end-->
                 </div>
             </div>
+
+
+        </div>
     </nav>
     <!--Nav bar section end-->
     <!--Main Content start-->
@@ -32,8 +51,16 @@
         <div class="container">
             <div class="left">
                 <a class="profile">
+
                     <div class="profile-picture">
-                        <img src="image/profilephoto.jpeg" alt="">
+                        <img src="image/profilephoto.jpeg" alt="" onclick="openPopup()">
+                    </div>
+
+                    <!-- Popup Container -->
+                    <div class="popup-container" id="popupContainer" onclick="closePopup()">
+                        <div class="popup-content">
+                            <img src="image/profilephoto.jpeg" alt="Enlarged Image">
+                        </div>
                     </div>
                     <div class="handle">
                         <h4>Iron man</h4>
@@ -44,7 +71,7 @@
                 </a>
                 <!--Side bar start-->
                 <div class="sidebar">
-                    <a href="#" class="menu-item active">
+                    <a href="index.html" class="menu-item active">
                         <span><i class="fa-solid fa-house"></i></span>
                         <h3>Home</h3>
                     </a>
@@ -53,7 +80,7 @@
                         <h3>Explore</h3>
                     </a>
                     <a href="#" class="menu-item" id="notifications">
-                        <span><i class="fa-solid fa-bell"><small class="notification-count">9+</small></i></span>
+                        <span><i class="fa-solid fa-bell"><small class="notification-count">1+</small></i></span>
                         <h3>Notifications</h3>
                         <!--Notification popup start-->
                         <div class="notifications-popup">
@@ -100,7 +127,6 @@
                     </a>
                 </div>
                 <!--Side bar end-->
-
                 <label for="create-post" class="btn btn-primary">Create post</label>
             </div>
 
@@ -139,13 +165,23 @@
                     </div>
                 </div>
                 <!--Stories end-->
+
+                <!--Post text area-->
                 <form class="create-post">
                     <div class="profile-picture">
                         <img src="image/profilephoto.jpeg" alt="">
                     </div>
-                    <input type="text" placeholder="Write your amazing thoughts" id="create-post">
-                    <input type="submit" value="Post" class="btn btn-primary">
+                    <input type="text" name="text" id="text" placeholder="Write your thoughts here...">
+                    <button type="submit" class="btn btn-list">
+                        Post
+                    </button>
                 </form>
+                <div class="container-list">
+                    <ul>
+                    </ul>
+                </div>
+                <!--Post text area-->
+
                 <!--Feeds start-->
                 <!--Feeds l-->
                 <div class="feeds">
@@ -153,7 +189,14 @@
                         <div class="head">
                             <div class="user">
                                 <div class="profile-picture">
-                                    <img src="image/profilephoto.jpeg" alt="">
+                                    <img src="image/superman.webp" alt="" onclick="openPopup()">
+                                </div>
+            
+                                <!-- Popup Container -->
+                                <div class="popup-container" id="popupContainer" onclick="closePopup()">
+                                    <div class="popup-content">
+                                        <img src="image/superman.webp" alt="Enlarged Image">
+                                    </div>
                                 </div>
                                 <div class="ingo">
                                     <h3>Superman</h3>
@@ -164,8 +207,8 @@
                                 <i class="fa-solid fa-ellipsis"></i>
                             </span>
                         </div>
-                        <div class="photo">
-                            <img src="image/profilephoto.jpeg" alt="">
+                        <div class="photo-middle">
+                            <img src="image/superman.webp" alt="">
                         </div>
                         <div class="action-button">
                             <div class="interaction-buttons">
@@ -199,10 +242,10 @@
                         <div class="head">
                             <div class="user">
                                 <div class="profile-picture">
-                                    <img src="image/profilephoto.jpeg" alt="">
+                                    <img src="image/deadpool.webp" alt="">
                                 </div>
                                 <div class="ingo">
-                                    <h3>Superman</h3>
+                                    <h3>Deadpool</h3>
                                     <small>India, 15 minutes ago</small>
                                 </div>
                             </div>
@@ -210,8 +253,8 @@
                                 <i class="fa-solid fa-ellipsis"></i>
                             </span>
                         </div>
-                        <div class="photo">
-                            <img src="image/profilephoto.jpeg" alt="">
+                        <div class="photo-middle">
+                            <img src="image/deadpool.webp" alt="">
                         </div>
                         <div class="action-button">
                             <div class="interaction-buttons">
@@ -245,10 +288,10 @@
                         <div class="head">
                             <div class="user">
                                 <div class="profile-picture">
-                                    <img src="image/profilephoto.jpeg" alt="">
+                                    <img src="image/batman.jpg" alt="">
                                 </div>
                                 <div class="ingo">
-                                    <h3>Superman</h3>
+                                    <h3>Batman</h3>
                                     <small>India, 15 minutes ago</small>
                                 </div>
                             </div>
@@ -256,8 +299,54 @@
                                 <i class="fa-solid fa-ellipsis"></i>
                             </span>
                         </div>
-                        <div class="photo">
-                            <img src="image/profilephoto.jpeg" alt="">
+                        <div class="photo-middle">
+                            <img src="image/batman.jpg" alt="">
+                        </div>
+                        <div class="action-button">
+                            <div class="interaction-buttons">
+                                <span><i class="fa-regular fa-heart"></i></span>
+                                <span><i class="fa-regular fa-comment"></i></span>
+                                <span><i class="fa-solid fa-share"></i></span>
+                            </div>
+                            <div class="bookmark">
+                                <span><i class="fa-regular fa-bookmark"></i></span>
+                            </div>
+                        </div>
+                        <div class="liked-by">
+                            <span><img src="image/profilephoto.jpeg" alt=""></span>
+                            <span><img src="image/profilephoto.jpeg" alt=""></span>
+                            <span><img src="image/profilephoto.jpeg" alt=""></span>
+                            <p>Liked by <b>wonder women</b>,<b>Superman</b> and <b>110 others</b> </p>
+                        </div>
+                        <div class="caption">
+                            <p><b>Deadpool</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <span class="harsh-tag">
+                                #Lifestyle
+                            </span>
+                            <div class="comments text-muted">
+                                View all 20 comments
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feeds">
+                    <div class="feed">
+                        <div class="head">
+                            <div class="user">
+                                <div class="profile-picture">
+                                    <img src="image/loki.jpeg" alt="">
+                                </div>
+                                <div class="ingo">
+                                    <h3>Loki</h3>
+                                    <small>India, 15 minutes ago</small>
+                                </div>
+                            </div>
+                            <span class="edit">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </span>
+                        </div>
+                        <div class="photo-middle">
+                            <img src="image/loki.jpeg" alt="">
                         </div>
                         <div class="action-button">
                             <div class="interaction-buttons">
@@ -291,10 +380,10 @@
                         <div class="head">
                             <div class="user">
                                 <div class="profile-picture">
-                                    <img src="image/profilephoto.jpeg" alt="">
+                                    <img src="image/captain america.jpg" alt="">
                                 </div>
                                 <div class="ingo">
-                                    <h3>Superman</h3>
+                                    <h3>Captain america</h3>
                                     <small>India, 15 minutes ago</small>
                                 </div>
                             </div>
@@ -302,8 +391,8 @@
                                 <i class="fa-solid fa-ellipsis"></i>
                             </span>
                         </div>
-                        <div class="photo">
-                            <img src="image/profilephoto.jpeg" alt="">
+                        <div class="photo-middle">
+                            <img src="image/captain america.jpg" alt="">
                         </div>
                         <div class="action-button">
                             <div class="interaction-buttons">
@@ -337,10 +426,10 @@
                         <div class="head">
                             <div class="user">
                                 <div class="profile-picture">
-                                    <img src="image/profilephoto.jpeg" alt="">
+                                    <img src="image/boi.png" alt="">
                                 </div>
                                 <div class="ingo">
-                                    <h3>Superman</h3>
+                                    <h3>salmon boi</h3>
                                     <small>India, 15 minutes ago</small>
                                 </div>
                             </div>
@@ -348,54 +437,8 @@
                                 <i class="fa-solid fa-ellipsis"></i>
                             </span>
                         </div>
-                        <div class="photo">
-                            <img src="image/profilephoto.jpeg" alt="">
-                        </div>
-                        <div class="action-button">
-                            <div class="interaction-buttons">
-                                <span><i class="fa-regular fa-heart"></i></span>
-                                <span><i class="fa-regular fa-comment"></i></span>
-                                <span><i class="fa-solid fa-share"></i></span>
-                            </div>
-                            <div class="bookmark">
-                                <span><i class="fa-regular fa-bookmark"></i></span>
-                            </div>
-                        </div>
-                        <div class="liked-by">
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <p>Liked by <b>wonder women</b>,<b>Batman</b> and <b>110 others</b> </p>
-                        </div>
-                        <div class="caption">
-                            <p><b>Deadpool</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <span class="harsh-tag">
-                                #Lifestyle
-                            </span>
-                            <div class="comments text-muted">
-                                View all 20 comments
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="feeds">
-                    <div class="feed">
-                        <div class="head">
-                            <div class="user">
-                                <div class="profile-picture">
-                                    <img src="image/profilephoto.jpeg" alt="">
-                                </div>
-                                <div class="ingo">
-                                    <h3>Superman</h3>
-                                    <small>India, 15 minutes ago</small>
-                                </div>
-                            </div>
-                            <span class="edit">
-                                <i class="fa-solid fa-ellipsis"></i>
-                            </span>
-                        </div>
-                        <div class="photo">
-                            <img src="image/profilephoto.jpeg" alt="">
+                        <div class="photo-middle">
+                            <img src="image/boi.png" alt="">
                         </div>
                         <div class="action-button">
                             <div class="interaction-buttons">
@@ -466,7 +509,7 @@
                             <img src="image/profilephoto.jpeg" alt="">
                         </div>
                         <div class="message-body">
-                            <h5>Wolverine</h5>
+                            <h5>Batman</h5>
                             <p class="text-muted">I'm in deadpool 3.</p>
                         </div>
                     </div>
